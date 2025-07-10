@@ -1,83 +1,27 @@
-//TOP Level
-
 eva-2.0/
-├── client/               # React front‑end
-├── server/               # FastAPI back‑end
-├── docker-compose.yml    # 1‑click local stack
-├── .env.example
+├── client/                  # Frontend (React app - src layout)
+│   ├── public/
+│   └── src/
+│       ├── assets/          # Images, fonts, etc.
+│       ├── components/      # Reusable UI components
+│       ├── features/        # Feature-level components (chatbot, camera, etc.)
+│       ├── hooks/           # Custom React hooks
+│       ├── routes/          # React Router routes
+│       ├── services/        # API calls to backend
+│       └── styles/          # Tailwind/global styles
+│
+├── docs/                    # Documentation
+│
+├── server/                  # Backend (FastAPI project)
+│   ├── app/
+│   │   ├── api/             # Route handlers (e.g., /voice, /chat)
+│   │   ├── core/            # Configs, startup, dependencies
+│   │   ├── models/          # Data models (DB, pydantic)
+│   │   ├── schemas/         # Request/response schemas
+│   │   ├── services/        # Business logic & model inference
+│   │   └── websocket/       # Real-time communication
+│   └── tests/               # Unit and integration tests
+│
+├── app.py                   # Main entry point (FastAPI)
 ├── README.md
-└── docs/                 # diagrams & ADRs
-
-Front End
-
-client/
-├── public/                       # index.html, favicon, manifest
-├── src/
-│   ├── assets/                   # logos, sounds, gesture sample vids
-│   ├── routes/                   # React‑Router pages
-│   │   ├── Dashboard.tsx
-│   │   ├── Assistant.tsx
-│   │   ├── Devices.tsx
-│   │   └── Settings.tsx
-│   ├── components/
-│   │   ├── ui/                   # shadcn wrapped components
-│   │   ├── charts/               # Reusable Recharts wrappers
-│   │   ├── assistant/            # Chat bubble, typing dots, etc.
-│   │   ├── vision/
-│   │   │   ├── GestureCanvas.tsx
-│   │   │   └── ObjectCanvas.tsx
-│   │   ├── voice/                # MicButton, TranscriptPanel
-│   │   └── common/               # Header, Sidebar, ThemeToggler
-│   ├── features/                 # Redux‑Toolkit slices or Zustand stores
-│   │   ├── assistant/
-│   │   ├── vision/
-│   │   ├── devices/
-│   │   └── notifications/
-│   ├── hooks/                    # useVoice(), useGesture(), useLLM()
-│   ├── services/                 # API + WS clients
-│   │   ├── api.ts
-│   │   ├── socket.ts
-│   │   ├── llm.ts
-│   │   └── objectDetect.ts
-│   ├── styles/                   # Tailwind base & variables
-│   ├── App.tsx
-│   └── main.tsx
-├── tailwind.config.ts
-└── tsconfig.json
-
-Server
-
-server/
-├── app/
-│   ├── api/
-│   │   └── v1/
-│   │       ├── endpoints/
-│   │       │   ├── auth.py
-│   │       │   ├── assistant.py      # /chat  -> calls LLM
-│   │       │   ├── vision.py         # /detect -> YOLO inference
-│   │       │   ├── devices.py        # CRUD + websocket broadcasts
-│   │       │   └── logs.py
-│   │       └── __init__.py
-│   ├── core/
-│   │   ├── config.py                 # settings via Pydantic
-│   │   ├── database.py               # SQLModel engine
-│   │   └── security.py               # JWT logic
-│   ├── models/                       # SQLModel ORM classes
-│   │   ├── user.py
-│   │   ├── device.py
-│   │   ├── log.py
-│   │   └── chat.py
-│   ├── schemas/                      # Pydantic request/response DTOs
-│   ├── services/
-│   │   ├── llm_service.py            # OpenAI / Gemini wrapper
-│   │   ├── object_service.py         # loads yolov8.onnx once
-│   │   ├── gesture_service.py        # (optional if backend infer)
-│   │   └── notify_service.py         # e‑mail / push stubs
-│   ├── websocket/
-│   │   ├── connection_manager.py     # manages active clients
-│   │   └── routes.py                 # /ws/devices, /ws/logs
-│   ├── main.py                       # FastAPI factory
-│   └── __init__.py
-├── tests/                            # PyTest suites
-├── requirements.txt
-└── Dockerfile
+└── structure.txt            # Folder structure reference
