@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────
+# Core App & API Framework
+fastapi==0.115.1
+uvicorn[standard]==0.30.1
+python-dotenv==1.0.1
+
+# ─────────────────────────────────────────────
+# Speech Recognition
+SpeechRecognition==3.10.1
+pyaudio==0.2.13  ; Windows users may need wheel from unofficial binaries
+pyttsx3==2.90
+
+# ─────────────────────────────────────────────
+# Gemini & Generative AI
+google-generativeai==0.5.4
+protobuf==4.25.3  # resolves Gemini's protobuf compatibility
+requests==2.31.0  # needed for Gemini API
+
+# ─────────────────────────────────────────────
+# Object Detection (YOLOv8)
+ultralytics==8.2.0
+opencv-python==4.9.0.80
+opencv-contrib-python==4.9.0.80  # if advanced OpenCV features needed
+
+# ─────────────────────────────────────────────
+# Gesture Detection
+mediapipe==0.10.9
+numpy==1.26.4
+
+# ─────────────────────────────────────────────
+# Text Processing (LLM fallback / chaining)
+langchain==0.2.1
+openai==1.30.3  # optional if fallback to GPT
+tiktoken==0.7.0
+
+# ─────────────────────────────────────────────
+# Extra (for async, CORS, frontend)
+httpx==0.27.0
+aiofiles==23.2.1
+jinja2==3.1.4
+python-multipart==0.0.9
