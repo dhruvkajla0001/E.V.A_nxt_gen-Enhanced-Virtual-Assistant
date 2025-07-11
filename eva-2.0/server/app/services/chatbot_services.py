@@ -6,11 +6,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Configure Gemini API
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+# Correct model name with full path
+model = genai.GenerativeModel("models/gemini-2.0-flash")
 
-# Create the model once
-model = genai.GenerativeModel("gemini-pro")
+
 
 def get_gemini_response(user_input: str) -> str:
     try:
