@@ -7,6 +7,7 @@ from server.app.api import tts_routes
 from server.app.api import assistant_routes
 from server.app.api import object_routes  # 👈 New object detection route
 
+
 app = FastAPI(
     title="EVA 2.0 – AI Assistant",
     version="1.0.0",
