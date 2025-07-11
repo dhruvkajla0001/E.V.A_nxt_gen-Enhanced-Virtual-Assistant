@@ -95,7 +95,8 @@ eva-2.0/
     <li>🧩 Plugin system to extend EVA modules (AI doctor, AI tutor, etc)</li>
   </ul>
 
-  <p><strong>👨‍💻 Built with love by Dhruv Kajla</strong></p>
+  <p><strong>👨‍💻 Built with love by Dhruv Kajla , Mukund Malik , Dipesh Dahiya
+  </strong></p>
 
 </body>
 </html>
