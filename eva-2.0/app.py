@@ -7,6 +7,7 @@ from server.app.api import tts_routes
 from server.app.api import assistant_routes
 from server.app.api import object_routes
 from server.app.api import gesture_routes  # ✅
+from server.app.api import health_routes
 
 app = FastAPI(
     title="EVA 2.0 – AI Assistant",
@@ -30,6 +31,7 @@ app.include_router(tts_routes.router, prefix="/tts", tags=["Text-to-Speech"])
 app.include_router(assistant_routes.router, prefix="/assistant", tags=["Assistant"])
 app.include_router(object_routes.router, prefix="/object", tags=["Object Detection"])
 app.include_router(gesture_routes.router, prefix="/gesture", tags=["Gesture"])  # ✅ Updated Prefix
+app.include_router(health_routes.router, tags=["Health"])
 
 # Health check
 @app.get("/", tags=["Health"])
