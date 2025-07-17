@@ -1,13 +1,17 @@
-# server/app/api/auth_routes.py
-
-from fastapi import APIRouter, HTTPException, Depends
-from fastapi.security import OAuth2PasswordRequestForm
-from server.app.models.user_model import UserCreate
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel, EmailStr
 from server.app.services.auth_service import register_user, authenticate_user
 from server.app.utils.security import create_access_token
+from server.app.models.user_model import UserCreate
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/auth",
+    tags=["Auth"]
+)
 
+class LoginRequest(BaseModel):
+    email: EmailStr
+    password: str
 
 @router.post("/register")
 async def register(user: UserCreate):
@@ -16,10 +20,9 @@ async def register(user: UserCreate):
         raise HTTPException(status_code=400, detail=result["message"])
     return result
 
-
 @router.post("/login")
-async def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    user = await authenticate_user(form_data.username, form_data.password)
+async def login(login_data: LoginRequest):
+    user = await authenticate_user(login_data.email, login_data.password)
     if not user:
         raise HTTPException(status_code=401, detail="Invalid credentials")
 
