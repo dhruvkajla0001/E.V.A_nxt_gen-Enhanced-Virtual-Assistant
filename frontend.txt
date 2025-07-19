@@ -1,0 +1,34 @@
+e-v-a-frontend/
+├── public/
+│   └── index.html
+├── src/
+│   ├── assets/               # Images, logos, icons, etc.
+│   ├── components/           # Reusable UI components
+│   │   ├── Navbar.jsx
+│   │   ├── Sidebar.jsx
+│   │   ├── ProtectedRoute.jsx
+│   ├── pages/                # Main page views
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── Assistant.jsx
+│   │   ├── ObjectDetection.jsx
+│   │   ├── GestureDetection.jsx
+│   │   ├── Logs.jsx
+│   │   ├── HealthMonitor.jsx
+│   │   └── Profile.jsx
+│   ├── api/                  # Axios instances or API call files
+│   │   ├── auth.js
+│   │   └── assistant.js
+│   ├── context/              # React Context for Auth, Assistant, etc.
+│   │   └── AuthContext.jsx
+│   ├── routes/               # App routes config
+│   │   └── AppRoutes.jsx
+│   ├── App.jsx               # Root component
+│   ├── main.jsx              # ReactDOM entry point
+│   └── index.css             # Tailwind + global styles
+├── .env                      # API base URL, etc.
+├── tailwind.config.js
+├── postcss.config.js
+├── package.json
+└── README.md
