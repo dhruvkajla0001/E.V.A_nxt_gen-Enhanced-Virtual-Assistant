@@ -1,12 +1,12 @@
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-4 mt-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <footer className="bg-gray-900 text-gray-400 py-4 w-full mt-auto">
+      <div className="px-6 flex flex-col sm:flex-row justify-between items-center">
         <p className="text-sm">
-          © {new Date().getFullYear()} E.V.A 2.0. All Rights Reserved.
+          © {new Date().getFullYear()} E.V.A 2.0. All rights reserved.
         </p>
-        <p className="text-xs mt-1">
-          Built with ❤️ using React, Tailwind, and AI-powered tech.
+        <p className="text-xs mt-2 sm:mt-0">
+          Powered by AI · Built with React & Tailwind
         </p>
       </div>
     </footer>
