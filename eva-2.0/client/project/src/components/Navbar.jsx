@@ -11,14 +11,14 @@ const Navbar = () => {
         {/* Logo */}
         <h1 className="text-2xl font-bold text-blue-400">E.V.A 2.0</h1>
 
-        {/* Desktop Links */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 text-sm sm:text-base">
           {isAuthenticated ? (
             <>
-              <a href="/dashboard" className="hover:text-blue-400 transition-colors">Dashboard</a>
-              <a href="/assistant" className="hover:text-blue-400 transition-colors">Assistant</a>
-              <a href="/logs" className="hover:text-blue-400 transition-colors">Logs</a>
-              <a href="/profile" className="hover:text-blue-400 transition-colors">Profile</a>
+              <a href="/dashboard" className="hover:text-blue-400">Dashboard</a>
+              <a href="/assistant" className="hover:text-blue-400">Assistant</a>
+              <a href="/logs" className="hover:text-blue-400">Logs</a>
+              <a href="/profile" className="hover:text-blue-400">Profile</a>
               <span className="text-gray-300">Hi, {user?.username || "User"}</span>
               <button
                 onClick={logout}
@@ -29,8 +29,8 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <a href="/login" className="hover:text-blue-400 transition-colors">Login</a>
-              <a href="/register" className="hover:text-blue-400 transition-colors">Register</a>
+              <a href="/login" className="hover:text-blue-400">Login</a>
+              <a href="/register" className="hover:text-blue-400">Register</a>
             </>
           )}
         </div>
@@ -44,7 +44,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Sidebar (Mobile) */}
+      {/* Mobile Sidebar */}
       {isMenuOpen && (
         <div className="md:hidden bg-gray-800 w-48 fixed top-16 left-0 h-full p-4 shadow-lg z-40">
           <nav className="flex flex-col space-y-4">
