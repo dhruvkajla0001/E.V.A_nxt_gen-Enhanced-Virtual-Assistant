@@ -1,15 +1,38 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/Protectedroutes";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
-      <Navbar />
-      <main className="flex-grow p-6 mt-16"> {/* Add margin so content is below navbar */}
-        <h1 className="text-2xl font-bold">Welcome to EVA 2.0</h1>
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+
+        {/* Page Content */}
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            {/* Default Redirect */}
+            <Route path="*" element={<Login />} />
+          </Routes>
+        </div>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
