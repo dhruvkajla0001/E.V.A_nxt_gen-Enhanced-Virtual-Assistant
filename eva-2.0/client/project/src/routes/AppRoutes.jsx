@@ -1,29 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import ProtectedRoute from "../components/ProtectedRoute";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import Dashboard from "../pages/Dashboard";
 
-// Temporary placeholder pages
-const Login = () => <h1 className="text-center mt-10 text-xl">Login Page</h1>;
-const Register = () => <h1 className="text-center mt-10 text-xl">Register Page</h1>;
-const Dashboard = () => <h1 className="text-center mt-10 text-xl">Dashboard</h1>;
-
-function AppRoutes() {
+export default function AppRoutes() {
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
 }
-
-export default AppRoutes;
