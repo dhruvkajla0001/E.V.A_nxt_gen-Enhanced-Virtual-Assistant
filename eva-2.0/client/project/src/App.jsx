@@ -5,17 +5,18 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Assistant from "./pages/Assistant";
+import Logs from "./pages/Logs";
 import ProtectedRoute from "./components/Protectedroutes";
 
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        {/* Navbar stays on all pages */}
+        {/* Navbar on all pages */}
         <Navbar />
 
         {/* Page Content */}
-        <div className="flex-grow pt-16"> {/* pt-16 avoids overlap with fixed Navbar */}
+        <div className="flex-grow pt-16">
           <Routes>
             {/* Public Routes */}
             <Route path="/login" element={<Login />} />
@@ -38,13 +39,21 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/logs"
+              element={
+                <ProtectedRoute>
+                  <Logs />
+                </ProtectedRoute>
+              }
+            />
 
-            {/* Redirect unknown routes to login */}
+            {/* Default Redirect */}
             <Route path="*" element={<Navigate to="/login" replace />} />
           </Routes>
         </div>
 
-        {/* Footer stays on all pages */}
+        {/* Footer on all pages */}
         <Footer />
       </div>
     </Router>
