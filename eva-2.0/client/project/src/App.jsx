@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Assistant from "./pages/Assistant";
 import Profile from "./pages/Profile";
+import About from "./pages/About";   // <-- Added About Page
 import ProtectedRoute from "./components/Protectedroutes";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             {/* Public Routes */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/about" element={<About />} /> {/* <-- Public About Route */}
 
             {/* Protected Routes */}
             <Route

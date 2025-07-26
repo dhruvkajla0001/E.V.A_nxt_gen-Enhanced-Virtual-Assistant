@@ -17,8 +17,8 @@ const Navbar = () => {
             <>
               <a href="/dashboard" className="hover:text-blue-400">Dashboard</a>
               <a href="/assistant" className="hover:text-blue-400">Assistant</a>
-              <a href="/logs" className="hover:text-blue-400">Logs</a>
               <a href="/profile" className="hover:text-blue-400">Profile</a>
+              <a href="/about" className="hover:text-blue-400">About</a>
               <span className="text-gray-300">Hi, {user?.username || "User"}</span>
               <button
                 onClick={logout}
@@ -31,6 +31,7 @@ const Navbar = () => {
             <>
               <a href="/login" className="hover:text-blue-400">Login</a>
               <a href="/register" className="hover:text-blue-400">Register</a>
+              <a href="/about" className="hover:text-blue-400">About</a>
             </>
           )}
         </div>
@@ -52,8 +53,8 @@ const Navbar = () => {
               <>
                 <a href="/dashboard" className="hover:text-blue-400">Dashboard</a>
                 <a href="/assistant" className="hover:text-blue-400">Assistant</a>
-                <a href="/logs" className="hover:text-blue-400">Logs</a>
                 <a href="/profile" className="hover:text-blue-400">Profile</a>
+                <a href="/about" className="hover:text-blue-400">About</a>
                 <span className="text-gray-300 mt-2">Hi, {user?.username || "User"}</span>
                 <button
                   onClick={() => {
@@ -69,6 +70,7 @@ const Navbar = () => {
               <>
                 <a href="/login" className="hover:text-blue-400">Login</a>
                 <a href="/register" className="hover:text-blue-400">Register</a>
+                <a href="/about" className="hover:text-blue-400">About</a>
               </>
             )}
           </nav>
